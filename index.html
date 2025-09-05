@@ -13,7 +13,7 @@
     .fade-in {
       opacity: 0.5;
       transform: translateY(20px);
-      animation: fadeInUp 3s ease forwards;
+      animation: fadeInUp 1.5s ease forwards;
     }
 
     @keyframes fadeInUp {
@@ -26,92 +26,102 @@
 </head>
 <body class="bg-white text-gray-800 font-sans">
 
-  <!-- Header -->
-<header class="bg-pink-500 text-white shadow-lg sticky top-0 z-40">
-  <nav class="container mx-auto flex justify-between items-center p-6">
-    <div class="text-2xl font-bold tracking-widest">My Portfolio</div>
-    <ul class="flex space-x-6 text-lg">
-      <li><a href="#personal" class="hover:text-pink-200 transition">Personal Info</a></li>
-      <li><a href="#education" class="hover:text-pink-200 transition">Education</a></li>
-      <li><a href="#works" class="hover:text-pink-200 transition">Works</a></li>
-      <li><a href="#reflection" class="hover:text-pink-200 transition">Reflection</a></li>
-    </ul>
-  </nav>
-</header>
+  <header class="bg-pink-500 text-white shadow-lg sticky top-0 z-40">
+    <nav class="container mx-auto flex justify-between items-center p-6">
+      <div class="text-2xl font-bold tracking-widest">My Portfolio</div>
+      
+      <ul class="hidden md:flex space-x-6 text-lg">
+        <li><a href="#personal" class="hover:text-pink-200 transition">Personal Info</a></li>
+        <li><a href="#education" class="hover:text-pink-200 transition">Education</a></li>
+        <li><a href="#works" class="hover:text-pink-200 transition">Works</a></li>
+        <li><a href="#reflection" class="hover:text-pink-200 transition">Reflection</a></li>
+      </ul>
+    </nav>
+  </header>
 
-
-  <!-- Hero / Personal Info -->
+   
   <section id="personal" class="py-16 bg-pink-100 fade-in">
     <div class="container mx-auto flex flex-col md:flex-row items-center justify-center text-center md:text-left space-y-6 md:space-y-0 md:space-x-10">
-      <img src="me!!!.jpg" alt="me!!!" class="w-40 h-40 rounded-full object-cover border-4 border-pink-300 shadow-lg" />
+      <img src="me!!!.jpg" alt="Profile Picture" class="w-40 h-40 rounded-full object-cover border-4 border-pink-300 shadow-lg" />
       <div>
         <h1 class="text-4xl md:text-5xl font-extrabold text-pink-600 mb-4">Colen U. Rivano</h1>
-        <p class="text-lg text-gray-700">Age:20 |Course:Bs Information System | Year Level:3rd year</p>
-        <p class="mt-2 text-gray-600">I am a BS Information System student passionate about technology and how it helps solve real-world problems..</p>
+        <p class="text-lg text-gray-700">Age: 20 | Course: BS Information System | Year Level: 3rd Year</p>
+        <p class="mt-2 text-gray-600">I am a BS Information System student passionate about technology and how it helps solve real-world problems.</p>
       </div>
     </div>
   </section>
 
-  <!-- Educational Background -->
+ 
   <section id="education" class="container mx-auto my-16 p-8 bg-white rounded-xl shadow-md fade-in">
     <h2 class="text-3xl font-semibold text-pink-600 mb-6">Educational Background</h2>
     <ul class="space-y-4 text-lg">
-      <li><strong>College:</strong>Lyceum San Pablo – Bachelor of Science in Information Systems</li>
+      <li><strong>College:</strong> Lyceum San Pablo – Bachelor of Science in Information Systems</li>
       <li><strong>Senior High School:</strong> St. Joseph – General Academic</li>
-      <li><strong>Junior High School:</strong> St.Joseph</li>
-      <li><strong>Elementary:</strong>San Narciso, Quezon Central Elementary School</li>
-      <!-- Add more if needed -->
+      <li><strong>Junior High School:</strong> St. Joseph</li>
+      <li><strong>Elementary:</strong> San Narciso, Quezon Central Elementary School</li>
     </ul>
   </section>
 
-  <!-- Samples of Works -->
-  <section id="works" class="container mx-auto my-16 fade-in">
-    <h2 class="text-3xl font-semibold text-pink-600 mb-6 text-center"> My Projects</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Sample 1 -->
-      <div class="bg-pink-50 p-6 rounded-x1 shadow hover:shadow-lg transition">
-        <img src="coco.jpeg" alt="coco">
-        <h3 class="text-pink-700 mb-2">Chapter & Co</h3>
-        <a href="#" class="text-pink-500 underline"></a>
-      </div>
-       <div class="bg-pink-50 p-6 rounded-x1 shadow hover:shadow-lg transition">
-        <img src="lll.jpeg" alt="lll">
-        <h3 class="text-pink-700 mb-2">Available Genres</h3>
-        <a href="#" class="text-pink-500 underline"></a>
-      </div>
-       <div class="bg-pink-50 p-6 rounded-x1 shadow hover:shadow-lg transition">
-        <img src="sss.jpeg" alt="sss">
-        <p class="text-pink-700 mb-2">A Cozy Rental Books</p>
-      </div>
-      <!-- Sample 2 -->
-      <div class="bg-pink-100 p-6 rounded-x2 shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-bold text-pink-600 mb-2">Project Title 2</h3>
-        <p class="text-gray-700 mb-2">Short description of the project.</p>
-        <a href="#" class="text-pink-500 underline">View Project</a>
-      </div>
-       <!-- Sample 2 -->
-      <div class="bg-pink-100 p-6 rounded-x2 shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-bold text-pink-600 mb-2">Project Title 2</h3>
-        <p class="text-gray-700 mb-2">Short description of the project.</p>
-        <a href="#" class="text-gray-500 underline">View Project</a>
-      </div> <!-- Sample 2 -->
-      <div class="bg-pink-100 p-6 rounded-x2 shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-bold text-pink-600 mb-2">Project Title 2</h3>
-        <p class="text-gray-700 mb-2">Short description of the project.</p>
-        <a href="#" class="text-pink-500 underline">View Project</a>
-      </div>
-  </section>
+   
+  <section id="works" class="container mx-auto my-16 px-4 fade-in">
+    <h2 class="text-3xl font-semibold text-pink-600 mb-10 text-center">My Projects</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-  <!-- Reflection -->
-  <section id="reflection" class="text-center py-16 bg-pink-50 fade-in">
+       
+      <div class="bg-pink-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <img src="coco.jpeg" alt="Chapter & Co" class="rounded-md mb-4 w-full h-48 object-cover" />
+        <h3 class="text-pink-700 font-semibold text-lg mb-2">Chapter & Co</h3>
+        <p class="text-gray-600 text-sm">A user-friendly book rental web platform.</p>
+      </div>
+
+       
+      <div class="bg-pink-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <img src="lll.jpeg" alt="Available Genres" class="rounded-md mb-4 w-full h-48 object-cover" />
+        <h3 class="text-pink-700 font-semibold text-lg mb-2">Available Genres</h3>
+        <p class="text-gray-600 text-sm">Categorized genres to help readers explore easily.</p>
+      </div>
+
+       
+      <div class="bg-pink-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <img src="sss.jpeg" alt="A Cozy Rental Books" class="rounded-md mb-4 w-full h-48 object-cover" />
+        <h3 class="text-pink-700 font-semibold text-lg mb-2">A Cozy Rental Books</h3>
+        <p class="text-gray-600 text-sm">Relaxing UI/UX focused design for readers.</p>
+      </div>
+
+    </div>
+
+<h2 class="text-3xl font-semibold text-pink-600 mt-16 mb-10 text-center">Future Projects</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+  <div class="bg-pink-100 p-6 rounded-xl shadow hover:shadow-lg transition">
+    <h3 class="text-xl font-bold text-pink-600 mb-2">Library System Reservation</h3>
+    <p class="text-gray-700 mb-2">A reservation system to book library resources and study rooms efficiently.</p>
+  </div>
+
+  <div class="bg-pink-100 p-6 rounded-xl shadow hover:shadow-lg transition">
+    <h3 class="text-xl font-bold text-pink-600 mb-2">QR Code Attendance</h3>
+    <p class="text-gray-700 mb-2">An attendance tracking app using QR codes to simplify class check-ins.</p>
+  </div>
+
+  <div class="bg-pink-100 p-6 rounded-xl shadow hover:shadow-lg transition">
+    <h3 class="text-xl font-bold text-pink-600 mb-2">Campus Lost and Found App</h3>
+    <p class="text-gray-700 mb-2">An app to help students report and find lost items around campus.</p>
+  </div>
+
+</div>
+
+
+  
+  <section id="reflection" class="text-center py-16 px-4 bg-pink-50 fade-in">
     <h2 class="text-3xl font-semibold text-pink-700 mb-6">Reflection</h2>
     <p class="max-w-2xl mx-auto text-lg text-gray-700 leading-relaxed">
       "Being a student has taught me to keep going, think clearly, and always be open to learning. Through my projects and real-life tasks, I’ve improved my tech skills and become more confident and better at working with others. I’m excited to keep learning and growing even more."
     </p>
+  </section>
 
-  <!-- Footer -->
-  <footer class="bg-pink-600 text-white text-center p-4 mt-8">
-    <p>&copy; Colen Rivano | ADV06 Portfolio</p>
+   
+  <footer class="bg-pink-600 text-white text-center p-4">
+    <p>&copy; 2025 Colen Rivano | ADV06 Portfolio</p>
   </footer>
 
 </body>
