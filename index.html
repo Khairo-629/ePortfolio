@@ -5,221 +5,148 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Colen Rivano Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
   <style>
-    /* Custom animations */
+    body {
+      font-family: "Times New Roman", serif;
+      background-color: #ffffff;
+      color: #164a41;
+    }
+    header { background-color: #164a41; }
+    header a { color: #ffffff; }
+    header a:hover { color: #f1b24a; }
+    footer { background-color: #4d7748; color: #ffffff; }
+    .card { background-color: transparent !important; border: 1px solid #9dc88d; }
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .fade-in-up {
-      animation: fadeInUp 1s ease-out forwards;
-    }
+    .fade-in-up { animation: fadeInUp 1s ease-out forwards; }
   </style>
 </head>
-<body class="bg-gradient-to-br from-pink-100 via-pink-50 to-green-100 text-gray-800 font-sans">
+<body class="font-serif">
 
 <!-- Header -->
-<header class="bg-green-500/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+<header class="backdrop-blur-md shadow-lg sticky top-0 z-50">
   <nav class="container mx-auto flex justify-between items-center p-4">
-    <div class="flex items-center space-x-3">
-      <img src="me!!!.jpg" alt="me!!!" class="w-12 h-12 rounded-full border-2 border-white shadow transition-transform duration-300 hover:scale-110"/>
-      <h1 class="text-2xl font-bold text-white transition-colors duration-300 hover:text-pink-200">Colen Rivano</h1>
-    </div>
-    <ul class="flex space-x-6 text-white font-medium">
-      <li><a href="#about" class="hover:text-pink-200 transition-colors duration-300">About</a></li>
-      <li><a href="#education" class="hover:text-pink-200 transition-colors duration-300">Education</a></li>
-      <li><a href="#skills" class="hover:text-pink-200 transition-colors duration-300">Skills</a></li>
-      <li><a href="#projects" class="hover:text-pink-200 transition-colors duration-300">Projects</a></li>
-      <li><a href="#family" class="hover:text-pink-200 transition-colors duration-300">Family</a></li>
-      <li><a href="#course" class="hover:text-pink-200 transition-colors duration-300">course</a></li>
-      <li><a href="#photos" class="hover:text-pink-200 transition-colors duration-300">Photos</a></li>
-      <li><a href="#contact" class="hover:text-pink-200 transition-colors duration-300">Contact</a></li>
+    <h1 class="text-2xl font-bold text-white">Colen Rivano</h1>
+    <ul class="flex space-x-6 font-medium">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#course">Course</a></li>
     </ul>
+    <!-- Right Side: Search + Login -->
+    <div class="flex space-x-4 items-center">
+      <input id="searchBar" type="text" placeholder="Search..." class="px-2 py-1 rounded-md text-black"/>
+      <button onclick="openLogin()" class="bg-[#f1b24a] text-white px-3 py-1 rounded-md hover:bg-[#9dc88d]">Login</button>
+    </div>
   </nav>
 </header>
 
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-pink-400 via-pink-500 to-green-400 text-white text-center py-20 fade-in-up">
-  <h2 class="text-4xl font-bold mb-4">Hello, I'm Colen</h2>
-  <p class="text-lg mb-6">20 years old | BS Information Systems Student | Future Tech Enthusiast char!</p>
-  <a href="#projects" class="bg-white/80 text-green-700 px-6 py-3 rounded-lg shadow-lg hover:bg-white transition duration-300 hover:scale-105">See My Work</a>
+<section class="bg-gradient-to-r from-[#f1b24a] via-[#9dc88d] to-[#4d7748] text-white py-20 fade-in-up">
+  <div class="container mx-auto flex flex-col md:flex-row items-center justify-center text-center md:text-left space-y-6 md:space-y-0 md:space-x-8">
+    <img src="ss.png" alt="ss" class="w-40 h-40 rounded-full shadow-lg border-4 border-white transition-transform duration-300 hover:scale-110"/>
+    <div>
+      <h2 class="text-4xl font-bold mb-4">Hello, I'm Colen</h2>
+      <p class="text-lg mb-6">20 years old | BS Information Systems Student | Future Tech Enthusiast char!</p>
+      <a href="#projects" class="bg-white text-[#164a41] px-6 py-3 rounded-lg shadow-lg hover:bg-[#f1b24a] hover:text-white transition duration-300 hover:scale-105">See My Work</a>
+    </div>
+  </div>
 </section>
 
 <!-- Main Content -->
-<main class="container mx-auto p-6 space-y-16">
-
-  <!-- About Section -->
+<main class="container mx-auto p-6 space-y-16" id="content">
+  <!-- About -->
   <section id="about" class="fade-in-up">
-    <h3 class="text-3xl font-semibold mb-4 text-green-600">About Me</h3>
-    <div class="bg-white/70 backdrop-blur-md p-6 rounded-lg shadow-lg transition hover:shadow-2xl">
-      <p class="text-gray-700 leading-relaxed">
-        Hi! I'm <span class="font-bold">Colen Rivano</span>, 20 years old, living in Brgy. Bayanihan, San Narciso, Quezon.  
-        I enjoy watching romcoms, K-dramas, and reading Wattpad books—especially by <span class="italic">Jonaxx</span>.  
-        I also love collecting cute hair accessories, earrings, tops, and pajamas.
-      </p>
+    <h3 class="text-3xl font-semibold mb-4 text-[#4d7748]">About Me</h3>
+    <div class="p-6 rounded-lg shadow-lg card">
+      <p>Hi! I'm <span class="font-bold">Colen Rivano</span>, 20 years old, living in Brgy. Bayanihan, San Narciso, Quezon.  
+      I enjoy watching romcoms, K-dramas, and reading Wattpad books.  
+      I also love collecting cute accessories.</p>
     </div>
   </section>
 
-<section id="education" class="fade-in-up">
-  <h3 class="text-3xl font-semibold mb-4 text-green-600">Educational Background</h3>
-
-  <ul class="bg-white/70 backdrop-blur-md p-6 rounded-lg shadow-lg space-y-2 transition hover:shadow-2xl">
-    <li class="flex items-center space-x-4">
-       <img src="lyceum.jpg" alt="lyceum" class="w-10 h-10 rounded-full border-2 border-white shadow transition-transform duration-300 hover:scale-110"/>
-      <strong>Bachelor of Science in Information Systems</strong> - Ongoing</li>
-
-    <li class="flex items-center space-x-4">
-      <img src="st joseph.jpg" alt="st joseph" class="w-10 h-10 rounded-full border-2 border-white shadow transition-transform duration-300 hover:scale-110"/>
-      <span>High School - St. Joseph's High School</span>
-    </li>
-
-    <li class="flex items-center space-x-4">
-       <img src="elem.jpg" alt="elem" class="w-10 h-10 rounded-full border-2 border-white shadow transition-transform duration-300 hover:scale-110"/>
-      <span>Elementary - San Narciso Central Elementary School</span>
-      </li>
-  </ul>
-</section>
-
-
- 
-  <section id="skills" class="fade-in-up">
-    <h3 class="text-3xl font-semibold mb-4 text-green-600">Skills</h3>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="bg-white/70 backdrop-blur-md p-4 rounded-lg shadow text-center hover:scale-105 transition">HTML</div>
-      <div class="bg-white/70 backdrop-blur-md p-4 rounded-lg shadow text-center hover:scale-105 transition">CSS / Tailwind</div>
-      <div class="bg-white/70 backdrop-blur-md p-4 rounded-lg shadow text-center hover:scale-105 transition">JavaScript</div>
-      <div class="bg-white/70 backdrop-blur-md p-4 rounded-lg shadow text-center hover:scale-105 transition">System Analysis</div>
-    </div>
+  <!-- Education -->
+  <section id="education" class="fade-in-up">
+    <h3 class="text-3xl font-semibold mb-4 text-[#4d7748]">Educational Background</h3>
+    <ul class="p-6 rounded-lg shadow-lg card space-y-2">
+      <li><strong>Bachelor of Science in Information Systems</strong> - Ongoing</li>
+      <li>High School - St. Joseph's High School</li>
+      <li>Elementary - San Narciso Central Elementary School</li>
+    </ul>
   </section>
 
- 
+  <!-- Projects -->
   <section id="projects" class="fade-in-up">
-  <h3 class="text-3xl font-semibold mb-6 text-green-600">Projects</h3>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-
-    <article 
-      class="bg-white/70 backdrop-blur-md rounded-lg shadow hover:shadow-xl hover:scale-105 transition overflow-hidden"
-    >
-      <div 
-        class="h-40 bg-cover bg-center"
-        style="background-image: url('coco.jpeg');"
-      ></div>
-      <div class="p-4">
-        <h4 class="font-bold text-xl mb-2">Chapter & Co BOOK SHOP Website</h4>
-        <p class="text-gray-600">A clean personal portfolio built using TailwindCSS.</p>
-      </div>
-    </article>
-
- 
-    <article 
-      class="bg-white/70 backdrop-blur-md rounded-lg shadow hover:shadow-xl hover:scale-105 transition overflow-hidden"
-    >
-      <div 
-        class="h-40 bg-cover bg-center"
-        style="background-image: url('sss.jpeg');"
-      ></div>
-      <div class="p-4">
-        <h4 class="font-bold text-xl mb-2">my first project</h4>
-        <p class="text-gray-600">Sample layouts made with HTML, CSS, and JS.</p>
-      </div>
-    </article>
-
-    
-    <article 
-      class="bg-white/70 backdrop-blur-md rounded-lg shadow hover:shadow-xl hover:scale-105 transition overflow-hidden"
-    >
-      <div 
-        class="h-40 bg-cover bg-center"
-        style="background-image: url('lll.jpeg');"
-      ></div>
-      <div class="p-4">
-        <h4 class="font-bold text-xl mb-2"></h4>
-        <p class="text-gray-600">book rental shop</p>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-
-  <section id="family" class="fade-in-up">
-    <h3 class="text-3xl font-semibold mb-4 text-green-600">My Family</h3>
-    <div class="bg-white/70 backdrop-blur-md p-6 rounded-lg shadow-lg transition hover:shadow-2xl">
-      <p class="text-gray-700 leading-relaxed">
-        I am the youngest among 3 siblings. I have 2 sisters. My father used to be a farmer but now works as a Barangay Police.  
-        My mother previously owned a sari-sari store and is now working as a maid. Family means everything to me.
-      </p>
-    </div>
+    <h3 class="text-3xl font-semibold mb-6 text-[#4d7748]">Projects</h3>
+    <p>[pendings...]</p>
   </section>
 
+ <!-- Course -->
 <section id="course" class="fade-in-up">
-  <h3 class="text-3xl font-semibold mb-4 text-green-600">My Course – Information Systems</h3>
-  <div class="bg-white/70 backdrop-blur-md p-6 rounded-lg shadow-lg text-center hover:shadow-2xl">
-    <p class="text-gray-700 leading-relaxed">
-      I'm currently pursuing a <span class="font-bold">Bachelor of Science in Information Systems</span>, 
-      a course that blends technology, business, and data to solve real-world problems. 
-      It helps me understand how systems work, how to design them efficiently, and how to manage them in organizational settings.
+  <h3 class="text-3xl font-semibold mb-4 text-[#4d7748]">My Course – Information Systems</h3>
+  <div class="p-6 rounded-lg shadow-lg text-center card">
+    <p>
+      I'm currently pursuing a <span class="font-bold">Bachelor of Science in Information Systems (BSIS)</span>, 
+      a course that mixes technology, business, and management. It teaches us how to create and improve computer 
+      systems that help organizations work better. In this course, we learn skills like programming, handling data, 
+      analyzing systems, and managing projects. It prepares us to solve everyday problems using technology and to 
+      help people and businesses make smarter decisions.
     </p>
-    <img src="cc.jpg" alt="cc" class="mt-4 w-60 mx-auto rounded-lg shadow hover:scale-105 transition"/>
   </div>
 </section>
 
 
- 
-<section id="photos" class="fade-in-up">
-  <h3 class="text-3xl font-semibold mb-4 text-green-600">Photos & Memories</h3>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-    
-    
-    <div class="overflow-hidden rounded-lg shadow hover:scale-105 transition-transform">
-      <img src="FAM.jpg" alt="FAM" class="w-full h-60 object-cover"/>
-    </div>
-
-    <div class="overflow-hidden rounded-lg shadow hover:scale-105 transition-transform">
-      <img src="FATHER.jpg" alt="FATHER" class="w-full h-60 object-cover"/>
-    </div>
-
-    <div class="overflow-hidden rounded-lg shadow hover:scale-105 transition-transform">
-      <img src="ME.jpg" alt="ME" class="w-full h-60 object-cover"/>
-    </div>
-
-    <div class="overflow-hidden rounded-lg shadow hover:scale-105 transition-transform">
-      <img src="SIS.jpg" alt="SIS" class="w-full h-60 object-cover"/>
-    </div>
-
-    <div class="overflow-hidden rounded-lg shadow hover:scale-105 transition-transform">
-      <img src="CAS.jpg" alt="CAS" class="w-full h-60 object-cover"/>
-    </div>
-
-    <div class="overflow-hidden rounded-lg shadow hover:scale-105 transition-transform">
-      <img src="mini.jpg" alt="mini" class="w-full h-60 object-cover"/>
-    </div>
-
-    <div class="overflow-hidden rounded-lg shadow hover:scale-105 transition-transform">
-      <img src="me!!!.jpg" alt="me!!!" class="w-full h-60 object-cover"/>
-    </div>
- <div class="overflow-hidden rounded-lg shadow hover:scale-105 transition-transform">
-      <img src="hhh.jpg" alt="hhh" class="w-full h-60 object-cover"/>
-    </div>
-
-     <div class="overflow-hidden rounded-lg shadow hover:scale-105 transition-transform">
-      <img src="ate.jpg" alt="ate" class="w-full h-60 object-cover"/>
-    </div>
-
-  </div>
-</section>
-
+  <!-- QR Code -->
+  <section id="qr" class="fade-in-up text-center">
+    <h3 class="text-3xl font-semibold mb-4 text-[#4d7748]">Scan to Visit My Facebook</h3>
+    <canvas id="qrcode" class="mx-auto"></canvas>
+  </section>
 </main>
 
 <!-- Footer -->
-<footer id="contact" class="bg-green-600/80 backdrop-blur-md text-white py-6">
+<footer id="contact" class="py-6">
   <div class="container mx-auto text-center">
     <p>Contact me at <a href="mailto:colenrivano199@gmail.com" class="underline">colenrivano199@gmail.com</a></p>
     <p class="mt-2">&copy; 2025 Colen Rivano | Portfolio</p>
   </div>
 </footer>
+
+<!-- Login Modal -->
+<div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-80">
+    <h3 class="text-xl font-bold mb-4 text-[#164a41]">Login</h3>
+    <input type="text" placeholder="Username" class="w-full mb-2 px-3 py-2 border rounded"/>
+    <input type="password" placeholder="Password" class="w-full mb-4 px-3 py-2 border rounded"/>
+    <button onclick="closeLogin()" class="bg-[#164a41] text-white px-4 py-2 rounded hover:bg-[#f1b24a]">Login</button>
+    <button onclick="closeLogin()" class="ml-2 text-[#164a41]">Cancel</button>
+  </div>
+</div>
+
+<script>
+  // Search Feature
+  document.getElementById("searchBar").addEventListener("input", function() {
+    const query = this.value.toLowerCase();
+    document.querySelectorAll("#content section").forEach(sec => {
+      sec.style.display = sec.textContent.toLowerCase().includes(query) ? "" : "none";
+    });
+  });
+
+  // Login Modal
+  function openLogin() {
+    document.getElementById("loginModal").classList.remove("hidden");
+  }
+  function closeLogin() {
+    document.getElementById("loginModal").classList.add("hidden");
+  }
+
+  // QR Code
+  QRCode.toCanvas(document.getElementById('qrcode'), "https://www.facebook.com/colen.rivano", function (error) {
+    if (error) console.error(error);
+  });
+</script>
 
 </body>
 </html>
