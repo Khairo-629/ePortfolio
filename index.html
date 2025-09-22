@@ -10,173 +10,210 @@
       theme: {
         extend: {
           colors: {
-            accent: '#8B5E3C', /* Neutral brown */
-            cream: '#FAF3E0',
-            darkcream: '#E9E2D0',
+            cream: '#fdf6e3',
+            accent: '#8DB600', /* Apple Green */
+            dark: '#333'
           }
         }
       }
     }
   </script>
   <style>
-    /* Cream Digital Animated Background */
-    body {
-      background: repeating-linear-gradient(
-          90deg,
-          rgba(139, 94, 60, 0.08) 0px,
-          rgba(139, 94, 60, 0.08) 2px,
-          transparent 2px,
-          transparent 40px
-        ),
-        repeating-linear-gradient(
-          0deg,
-          rgba(139, 94, 60, 0.08) 0px,
-          rgba(139, 94, 60, 0.08) 2px,
-          transparent 2px,
-          transparent 40px
-        ),
-        #FAF3E0; /* Cream base */
-      background-size: 40px 40px;
-      animation: moveGrid 10s linear infinite;
+    /* Typing effect */
+    .typing {
+      border-right: 3px solid #8DB600;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(30, end) forwards, blink 0.7s infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      50% { border-color: transparent }
     }
 
-    @keyframes moveGrid {
-      from {
-        background-position: 0 0;
-      }
-      to {
-        background-position: 40px 40px;
-      }
+    /* Animated background */
+    body {
+      background: linear-gradient(270deg, #fdf6e3, #f5f0d7, #fdf6e3);
+      background-size: 600% 600%;
+      animation: backgroundShift 15s ease infinite;
+      transition: background 0.5s, color 0.5s;
+    }
+    @keyframes backgroundShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Bold text = Apple Green */
+    b, strong, .font-bold {
+      color: #8DB600 !important;
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      background: linear-gradient(270deg, #222, #333, #222);
+      color: #fdf6e3;
+    }
+    .dark-mode section,
+    .dark-mode div,
+    .dark-mode form {
+      background-color: #2a2a2a !important;
+      color: #fdf6e3 !important;
+    }
+    .dark-mode input {
+      background-color: #444 !important;
+      color: #fdf6e3 !important;
+      border-color: #8DB600 !important;
     }
   </style>
 </head>
-<body class="text-gray-800">
+<body class="text-dark">
 
-  <!-- Top Navigation -->
-  <header class="fixed top-0 left-0 w-full bg-accent text-white shadow-md z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+  <!-- Sidebar -->
+  <aside class="fixed top-0 left-0 w-64 h-screen bg-accent text-white flex flex-col">
+    <div class="flex items-center gap-3 px-6 py-6 border-b border-white/30">
       <h1 class="text-xl font-semibold">Colen Rivano</h1>
-      <nav>
-        <ul class="flex space-x-6">
-          <li><a href="#home" class="hover:underline"> Home</a></li>
-          <li><a href="#about" class="hover:underline"> About</a></li>
-          <li><a href="#education" class="hover:underline"> Education</a></li>
-          <li><a href="#favorites" class="hover:underline"> Favorites</a></li>
-          <li><a href="#contact" class="hover:underline"> Contact</a></li>
-        </ul>
-      </nav>
     </div>
-  </header>
+    <nav class="flex-1 mt-6">
+      <ul class="space-y-2">
+        <li><a href="#home" class="block px-6 py-2 hover:bg-white/10">Home</a></li>
+        <li><a href="#about" class="block px-6 py-2 hover:bg-white/10">About</a></li>
+        <li><a href="#education" class="block px-6 py-2 hover:bg-white/10">Education</a></li>
+        <li><a href="#favorites" class="block px-6 py-2 hover:bg-white/10">Favorites</a></li>
+        <li><a href="#contact" class="block px-6 py-2 hover:bg-white/10">Contact</a></li>
+        <li><a href="#settings" class="block px-6 py-2 hover:bg-white/10">Settings</a></li>
+        <li><a href="#login" class="block px-6 py-2 hover:bg-white/10">Login</a></li>
+      </ul>
+    </nav>
+  </aside>
 
   <!-- Main Content -->
-  <main class="pt-28 px-6 md:px-20 space-y-20 max-w-6xl mx-auto">
-    <!-- Home Section -->
-    <section id="home" class="mb-16 flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left h-screen">
-      <!-- Text -->
-      <div>
-        <h2 class="text-4xl font-bold mb-4 text-accent">
-          Hi, I'm Colen
-        </h2>
-        <p class="text-gray-700 max-w-md">
-          Starting with basics and still learning.
-        </p>
-      </div>
+  <main class="ml-64 p-10">
 
+    <!-- Home Section -->
+    <section id="home" class="mb-16 flex flex-col md:flex-row items-center justify-center gap-8 h-screen">
+      <!-- Text -->
+      <div class="text-center md:text-left">
+        <h2 class="text-4xl font-bold mb-4 typing">Hi, I'm Colen</h2>
+        <p class="text-bg-white max-w-md">Starting with basics and still learning.</p>
+        <p class="text-bg-white max-w-md">BSIS 3RD YEAR</p>
+      </div>
       <!-- Image -->
       <div>
-        <img src="me!!!.jpg" alt="me!!!" 
-             class="rounded-full w-64 h-64 border-4 border-accent">
+        <img src="me!!!.jpg" alt="me!!!" class="w-72 h-72 rounded-full object-cover shadow-lg">
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="mb-16">
       <h2 class="text-2xl font-semibold mb-4 text-accent">About Me</h2>
-      <div class="p-6 bg-white/70 rounded-lg shadow space-y-4">
-        <p>Hi, I’m <span class="font-bold text-accent">Colen</span>, I’m 20 years old, from Brgy. Bayanihan San Narciso, Quezon — a peaceful coastal town known for farming, fishing, and friendly communities with beaches where people relax and enjoy the sea.</p>
-        <p>I enjoy cute tops and little things that make me happy and comfortable.</p>
-        <p>I’m a silent person, but I value authenticity. I believe in staying true to myself without pretending to be someone else.</p>
+      <div class="p-6 bg-white rounded-lg shadow space-y-4">
+        <p>Hi, I’m <span class="font-bold">Colen</span>, 20 years old from Brgy. Bayanihan San Narciso, Quezon — a peaceful coastal town known for farming, fishing, friendly communities, and beaches where people enjoy the sea.</p>
+        <p>I enjoy little things that make me happy and comfortable.</p>
+        <p>I’m a silent person, but I value authenticity. I believe in staying true to myself without pretending.</p>
         <blockquote class="border-l-4 border-accent pl-4 italic text-gray-600">
           “Love yourself and be yourself — no pretensions, no comparisons, just you.”
         </blockquote>
       </div>
     </section>
 
-    <!-- Educational Background -->
-    <section id="education">
+    <!-- Education Section -->
+    <section id="education" class="mb-16">
       <h2 class="text-2xl font-semibold mb-6 text-accent">Educational Background</h2>
       <div class="space-y-4">
-        <div class="p-4 bg-white/70 rounded-lg shadow">
-          <h3 class="text-lg font-bold">Bachelor of Science in Information Systems</h3>
-          <p class="text-gray-600">Lyceum De San Pablo | 2023 – Present</p>
+        <div class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-bold">Bachelor of Science in Information Systems</h3>
+          <p class="text-bg-white">Lyceum De San Pablo | 2023 – Present</p>
         </div>
-        <div class="p-4 bg-white/70 rounded-lg shadow">
-          <h3 class="text-lg font-bold">Senior High School – General Academic Strand</h3>
-          <p class="text-gray-600">St. Joseph's High School | 2022 – 2023</p>
+        <div class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-bold">Senior High School – GAS</h3>
+          <p class="text-bg-white">St. Joseph's High School | 2022 – 2023</p>
         </div>
-        <div class="p-4 bg-white/70 rounded-lg shadow">
-          <h3 class="text-lg font-bold">Junior High School</h3>
-          <p class="text-gray-600">St. Joseph's High School | 2017 – 2021</p>
+        <div class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-bold">Junior High School</h3>
+          <p class="text-bg-white">St. Joseph's High School | 2017 – 2021</p>
         </div>
-        <div class="p-4 bg-white/70 rounded-lg shadow">
-          <h3 class="text-lg font-bold">Elementary</h3>
-          <p class="text-gray-600">San Narciso Central Elementary School | 2011 – 2017</p>
+        <div class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-bold">Elementary</h3>
+          <p class="text-bg-white">San Narciso Central Elementary School | 2011 – 2017</p>
         </div>
       </div>
     </section>
 
     <!-- Favorites Section -->
-    <section id="favorites">
+    <section id="favorites" class="mb-16">
       <h2 class="text-2xl font-semibold mb-6 text-accent">My Favorites</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 bg-white/70 rounded-lg shadow">
-          <h3 class="text-lg font-bold mb-2">🌊 Beach</h3>
-          <p class="text-gray-600">I love the calming waves and peaceful vibe of the sea.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 bg-white rounded-lg shadow hover:scale-105 transition">
+          <h3 class="font-bold text-lg mb-2">🌊 Beach</h3>
+          <p class="text-bg-white">Relaxing by the waves brings me peace.</p>
         </div>
-        <div class="p-6 bg-white/70 rounded-lg shadow">
-          <h3 class="text-lg font-bold mb-2">🎶 Music</h3>
-          <p class="text-gray-600">Listening to music makes me relaxed and happy every day.</p>
+        <div class="p-6 bg-white rounded-lg shadow hover:scale-105 transition">
+          <h3 class="font-bold text-lg mb-2">🎵 Music</h3>
+          <p class="text-bg-white">Listening to music keeps me inspired.</p>
         </div>
-        <div class="p-6 bg-white/70 rounded-lg shadow">
-          <h3 class="text-lg font-bold mb-2">📚 Books</h3>
-          <p class="text-gray-600">Reading helps me escape, learn new things, and grow.</p>
+        <div class="p-6 bg-white rounded-lg shadow hover:scale-105 transition">
+          <h3 class="font-bold text-lg mb-2">📚 Learning</h3>
+          <p class="text-bg-white">I enjoy exploring new knowledge every day.</p>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-      <h2 class="text-2xl font-semibold mb-4 text-accent">Contact</h2>
-      <div class="p-6 bg-white/70 rounded-lg shadow space-y-4">
-        <p>Scan the QR code below to visit my Facebook profile:</p>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://facebook.com/colen.rivano&size=150x150" alt="Facebook QR Code" class="mx-auto rounded">
+    <!-- Contact + Settings Side by Side -->
+    <section class="mb-16 grid md:grid-cols-2 gap-6">
+      <!-- Contact Section -->
+      <section id="contact">
+        <h2 class="text-2xl font-semibold mb-4 text-accent">Contact</h2>
+        <div class="p-6 bg-white rounded-lg shadow space-y-4">
+          <p>Scan the QR code below to visit my Facebook profile:</p>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://facebook.com/colen.rivano&size=150x150" 
+               alt="Facebook QR Code" class="mx-auto rounded shadow w-40 h-40">
+        </div>
+      </section>
+
+      <!-- Settings Section -->
+      <section id="settings">
+        <h2 class="text-2xl font-semibold mb-4 text-accent">Settings</h2>
+        <div class="p-6 bg-white rounded-lg shadow space-y-4">
+          <p class="text-bg-white">Customize your profile or preferences:</p>
+          
+          <!-- Dark Mode Toggle -->
+          <div class="flex items-center justify-between">
+            <label class="text-bg-white">Dark Mode</label>
+            <input type="checkbox" id="darkToggle" class="h-5 w-5 cursor-pointer accent-[#8DB600]">
+          </div>
+
+          <!-- Example Button -->
+          <button class="w-full px-4 py-2 bg-accent text-white rounded hover:bg-green-700 transition">
+            Save Settings
+          </button>
+        </div>
+      </section>
+    </section>
+
+    <!-- Login Section (Full Footer Width) -->
+    <section id="login" class="w-full">
+      <div class="p-6 bg-white rounded-lg shadow w-full">
+        <form class="space-y-4">
+          <input type="text" placeholder="Username" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-accent">
+          <input type="password" placeholder="Password" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-accent">
+          <button type="submit" class="w-full bg-accent text-white py-2 rounded hover:bg-green-700 transition">Log In</button>
+        </form>
       </div>
     </section>
 
-    <!-- Login Feature -->
-    <section id="login" class="text-center">
-      <button onclick="document.getElementById('loginModal').classList.remove('hidden')" 
-              class="px-6 py-3 bg-accent text-white font-semibold rounded-lg shadow-md">
-         Login
-      </button>
-    </section>
   </main>
 
-  <!-- Login Modal -->
-  <div id="loginModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-96 space-y-6 relative">
-      <h2 class="text-2xl font-bold text-accent">Login</h2>
-      <form class="space-y-4">
-        <input type="email" placeholder="Email" class="w-full p-3 rounded bg-gray-100 border border-gray-300 focus:border-accent outline-none">
-        <input type="password" placeholder="Password" class="w-full p-3 rounded bg-gray-100 border border-gray-300 focus:border-accent outline-none">
-        <button type="submit" class="w-full py-3 bg-accent text-white font-semibold rounded">Login</button>
-      </form>
-      <button onclick="document.getElementById('loginModal').classList.add('hidden')" 
-              class="absolute top-2 right-3 text-gray-500 hover:text-black text-xl">&times;</button>
-    </div>
-  </div>
-
+  <script>
+    // Dark Mode Toggle
+    const toggle = document.getElementById("darkToggle");
+    toggle.addEventListener("change", () => {
+      document.body.classList.toggle("dark-mode", toggle.checked);
+    });
+  </script>
 </body>
 </html>
-
-
