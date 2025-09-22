@@ -2,151 +2,181 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Colen Rivano Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#8B5E3C', /* Neutral brown */
+            cream: '#FAF3E0',
+            darkcream: '#E9E2D0',
+          }
+        }
+      }
+    }
+  </script>
   <style>
+    /* Cream Digital Animated Background */
     body {
-      font-family: "Times New Roman", serif;
-      background-color: #ffffff;
-      color: #164a41;
+      background: repeating-linear-gradient(
+          90deg,
+          rgba(139, 94, 60, 0.08) 0px,
+          rgba(139, 94, 60, 0.08) 2px,
+          transparent 2px,
+          transparent 40px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgba(139, 94, 60, 0.08) 0px,
+          rgba(139, 94, 60, 0.08) 2px,
+          transparent 2px,
+          transparent 40px
+        ),
+        #FAF3E0; /* Cream base */
+      background-size: 40px 40px;
+      animation: moveGrid 10s linear infinite;
     }
-    header { background-color: #164a41; }
-    header a { color: #ffffff; }
-    header a:hover { color: #f1b24a; }
-    footer { background-color: #4d7748; color: #ffffff; }
-    .card { background-color: transparent !important; border: 1px solid #9dc88d; }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    @keyframes moveGrid {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: 40px 40px;
+      }
     }
-    .fade-in-up { animation: fadeInUp 1s ease-out forwards; }
   </style>
 </head>
-<body class="font-serif">
+<body class="text-gray-800">
 
-<!-- Header -->
-<header class="backdrop-blur-md shadow-lg sticky top-0 z-50">
-  <nav class="container mx-auto flex justify-between items-center p-4">
-    <h1 class="text-2xl font-bold text-white">Colen Rivano</h1>
-    <ul class="flex space-x-6 font-medium">
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#course">Course</a></li>
-    </ul>
-    <!-- Right Side: Search + Login -->
-    <div class="flex space-x-4 items-center">
-      <input id="searchBar" type="text" placeholder="Search..." class="px-2 py-1 rounded-md text-black"/>
-      <button onclick="openLogin()" class="bg-[#f1b24a] text-white px-3 py-1 rounded-md hover:bg-[#9dc88d]">Login</button>
+  <!-- Top Navigation -->
+  <header class="fixed top-0 left-0 w-full bg-accent text-white shadow-md z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-xl font-semibold">Colen Rivano</h1>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#home" class="hover:underline"> Home</a></li>
+          <li><a href="#about" class="hover:underline"> About</a></li>
+          <li><a href="#education" class="hover:underline"> Education</a></li>
+          <li><a href="#favorites" class="hover:underline"> Favorites</a></li>
+          <li><a href="#contact" class="hover:underline"> Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
 
-<!-- Hero Section -->
-<section class="bg-gradient-to-r from-[#f1b24a] via-[#9dc88d] to-[#4d7748] text-white py-20 fade-in-up">
-  <div class="container mx-auto flex flex-col md:flex-row items-center justify-center text-center md:text-left space-y-6 md:space-y-0 md:space-x-8">
-    <img src="me!!!.png" alt="me!!!" class="w-40 h-40 rounded-full shadow-lg border-4 border-white transition-transform duration-300 hover:scale-110"/>
-    <div>
-      <h2 class="text-4xl font-bold mb-4">Hello, I'm Colen</h2>
-      <p class="text-lg mb-6">20 years old | BS Information Systems Student | Future Tech Enthusiast char!</p>
-      <a href="#projects" class="bg-white text-[#164a41] px-6 py-3 rounded-lg shadow-lg hover:bg-[#f1b24a] hover:text-white transition duration-300 hover:scale-105">See My Work</a>
+  <!-- Main Content -->
+  <main class="pt-28 px-6 md:px-20 space-y-20 max-w-6xl mx-auto">
+    <!-- Home Section -->
+    <section id="home" class="mb-16 flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left h-screen">
+      <!-- Text -->
+      <div>
+        <h2 class="text-4xl font-bold mb-4 text-accent">
+          Hi, I'm Colen
+        </h2>
+        <p class="text-gray-700 max-w-md">
+          Starting with basics and still learning.
+        </p>
+      </div>
+
+      <!-- Image -->
+      <div>
+        <img src="me!!!.jpg" alt="me!!!" 
+             class="rounded-full w-64 h-64 border-4 border-accent">
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2 class="text-2xl font-semibold mb-4 text-accent">About Me</h2>
+      <div class="p-6 bg-white/70 rounded-lg shadow space-y-4">
+        <p>Hi, I’m <span class="font-bold text-accent">Colen</span>, I’m 20 years old, from Brgy. Bayanihan San Narciso, Quezon — a peaceful coastal town known for farming, fishing, and friendly communities with beaches where people relax and enjoy the sea.</p>
+        <p>I enjoy cute tops and little things that make me happy and comfortable.</p>
+        <p>I’m a silent person, but I value authenticity. I believe in staying true to myself without pretending to be someone else.</p>
+        <blockquote class="border-l-4 border-accent pl-4 italic text-gray-600">
+          “Love yourself and be yourself — no pretensions, no comparisons, just you.”
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Educational Background -->
+    <section id="education">
+      <h2 class="text-2xl font-semibold mb-6 text-accent">Educational Background</h2>
+      <div class="space-y-4">
+        <div class="p-4 bg-white/70 rounded-lg shadow">
+          <h3 class="text-lg font-bold">Bachelor of Science in Information Systems</h3>
+          <p class="text-gray-600">Lyceum De San Pablo | 2023 – Present</p>
+        </div>
+        <div class="p-4 bg-white/70 rounded-lg shadow">
+          <h3 class="text-lg font-bold">Senior High School – General Academic Strand</h3>
+          <p class="text-gray-600">St. Joseph's High School | 2022 – 2023</p>
+        </div>
+        <div class="p-4 bg-white/70 rounded-lg shadow">
+          <h3 class="text-lg font-bold">Junior High School</h3>
+          <p class="text-gray-600">St. Joseph's High School | 2017 – 2021</p>
+        </div>
+        <div class="p-4 bg-white/70 rounded-lg shadow">
+          <h3 class="text-lg font-bold">Elementary</h3>
+          <p class="text-gray-600">San Narciso Central Elementary School | 2011 – 2017</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Favorites Section -->
+    <section id="favorites">
+      <h2 class="text-2xl font-semibold mb-6 text-accent">My Favorites</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 bg-white/70 rounded-lg shadow">
+          <h3 class="text-lg font-bold mb-2">🌊 Beach</h3>
+          <p class="text-gray-600">I love the calming waves and peaceful vibe of the sea.</p>
+        </div>
+        <div class="p-6 bg-white/70 rounded-lg shadow">
+          <h3 class="text-lg font-bold mb-2">🎶 Music</h3>
+          <p class="text-gray-600">Listening to music makes me relaxed and happy every day.</p>
+        </div>
+        <div class="p-6 bg-white/70 rounded-lg shadow">
+          <h3 class="text-lg font-bold mb-2">📚 Books</h3>
+          <p class="text-gray-600">Reading helps me escape, learn new things, and grow.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2 class="text-2xl font-semibold mb-4 text-accent">Contact</h2>
+      <div class="p-6 bg-white/70 rounded-lg shadow space-y-4">
+        <p>Scan the QR code below to visit my Facebook profile:</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://facebook.com/colen.rivano&size=150x150" alt="Facebook QR Code" class="mx-auto rounded">
+      </div>
+    </section>
+
+    <!-- Login Feature -->
+    <section id="login" class="text-center">
+      <button onclick="document.getElementById('loginModal').classList.remove('hidden')" 
+              class="px-6 py-3 bg-accent text-white font-semibold rounded-lg shadow-md">
+         Login
+      </button>
+    </section>
+  </main>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96 space-y-6 relative">
+      <h2 class="text-2xl font-bold text-accent">Login</h2>
+      <form class="space-y-4">
+        <input type="email" placeholder="Email" class="w-full p-3 rounded bg-gray-100 border border-gray-300 focus:border-accent outline-none">
+        <input type="password" placeholder="Password" class="w-full p-3 rounded bg-gray-100 border border-gray-300 focus:border-accent outline-none">
+        <button type="submit" class="w-full py-3 bg-accent text-white font-semibold rounded">Login</button>
+      </form>
+      <button onclick="document.getElementById('loginModal').classList.add('hidden')" 
+              class="absolute top-2 right-3 text-gray-500 hover:text-black text-xl">&times;</button>
     </div>
   </div>
-</section>
-
-<!-- Main Content -->
-<main class="container mx-auto p-6 space-y-16" id="content">
-  <!-- About -->
-  <section id="about" class="fade-in-up">
-    <h3 class="text-3xl font-semibold mb-4 text-[#4d7748]">About Me</h3>
-    <div class="p-6 rounded-lg shadow-lg card">
-      <p>Hi! I'm <span class="font-bold">Colen Rivano</span>, 20 years old, living in Brgy. Bayanihan, San Narciso, Quezon.  
-      I enjoy watching romcoms, K-dramas, and reading Wattpad books.  
-      I also love collecting cute accessories.</p>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education" class="fade-in-up">
-    <h3 class="text-3xl font-semibold mb-4 text-[#4d7748]">Educational Background</h3>
-    <ul class="p-6 rounded-lg shadow-lg card space-y-2">
-      <li><strong>Bachelor of Science in Information Systems</strong> - Ongoing</li>
-      <li>High School - St. Joseph's High School</li>
-      <li>Elementary - San Narciso Central Elementary School</li>
-    </ul>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="fade-in-up">
-    <h3 class="text-3xl font-semibold mb-6 text-[#4d7748]">Projects</h3>
-    <p>[pendings...]</p>
-  </section>
-
- <!-- Course -->
-<section id="course" class="fade-in-up">
-  <h3 class="text-3xl font-semibold mb-4 text-[#4d7748]">My Course – Information Systems</h3>
-  <div class="p-6 rounded-lg shadow-lg text-center card">
-    <p>
-      I'm currently pursuing a <span class="font-bold">Bachelor of Science in Information Systems (BSIS)</span>, 
-      a course that mixes technology, business, and management. It teaches us how to create and improve computer 
-      systems that help organizations work better. In this course, we learn skills like programming, handling data, 
-      analyzing systems, and managing projects. It prepares us to solve everyday problems using technology and to 
-      help people and businesses make smarter decisions.
-    </p>
-  </div>
-</section>
-
-
-  <!-- QR Code -->
-  <section id="qr" class="fade-in-up text-center">
-    <h3 class="text-3xl font-semibold mb-4 text-[#4d7748]">Scan to Visit My Facebook</h3>
-    <canvas id="qrcode" class="mx-auto"></canvas>
-  </section>
-</main>
-
-<!-- Footer -->
-<footer id="contact" class="py-6">
-  <div class="container mx-auto text-center">
-    <p>Contact me at <a href="mailto:colenrivano199@gmail.com" class="underline">colenrivano199@gmail.com</a></p>
-    <p class="mt-2">&copy; 2025 Colen Rivano | Portfolio</p>
-  </div>
-</footer>
-
-<!-- Login Modal -->
-<div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
-  <div class="bg-white p-6 rounded-lg shadow-lg w-80">
-    <h3 class="text-xl font-bold mb-4 text-[#164a41]">Login</h3>
-    <input type="text" placeholder="Username" class="w-full mb-2 px-3 py-2 border rounded"/>
-    <input type="password" placeholder="Password" class="w-full mb-4 px-3 py-2 border rounded"/>
-    <button onclick="closeLogin()" class="bg-[#164a41] text-white px-4 py-2 rounded hover:bg-[#f1b24a]">Login</button>
-    <button onclick="closeLogin()" class="ml-2 text-[#164a41]">Cancel</button>
-  </div>
-</div>
-
-<script>
-  // Search Feature
-  document.getElementById("searchBar").addEventListener("input", function() {
-    const query = this.value.toLowerCase();
-    document.querySelectorAll("#content section").forEach(sec => {
-      sec.style.display = sec.textContent.toLowerCase().includes(query) ? "" : "none";
-    });
-  });
-
-  // Login Modal
-  function openLogin() {
-    document.getElementById("loginModal").classList.remove("hidden");
-  }
-  function closeLogin() {
-    document.getElementById("loginModal").classList.add("hidden");
-  }
-
-  // QR Code
-  QRCode.toCanvas(document.getElementById('qrcode'), "https://www.facebook.com/colen.rivano", function (error) {
-    if (error) console.error(error);
-  });
-</script>
 
 </body>
 </html>
+
+
