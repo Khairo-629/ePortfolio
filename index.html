@@ -27,13 +27,8 @@
       width: 0;
       animation: typing 4s steps(30, end) forwards, blink 0.7s infinite;
     }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink {
-      50% { border-color: transparent }
-    }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent } }
 
     /* Animated background */
     body {
@@ -49,9 +44,7 @@
     }
 
     /* Bold text = Apple Green */
-    b, strong, .font-bold {
-      color: #8DB600 !important;
-    }
+    b, strong, .font-bold { color: #8DB600 !important; }
 
     /* Dark Mode */
     .dark-mode {
@@ -73,26 +66,45 @@
 </head>
 <body class="text-dark">
 
-  <!-- Sidebar -->
-  <aside class="fixed top-0 left-0 w-64 h-screen bg-accent text-white flex flex-col">
-    <div class="flex items-center gap-3 px-6 py-6 border-b border-white/30">
-      <h1 class="text-xl font-semibold">Colen Rivano</h1>
-    </div>
-    <nav class="flex-1 mt-6">
-      <ul class="space-y-2">
-        <li><a href="#home" class="block px-6 py-2 hover:bg-white/10">Home</a></li>
-        <li><a href="#about" class="block px-6 py-2 hover:bg-white/10">About</a></li>
-        <li><a href="#education" class="block px-6 py-2 hover:bg-white/10">Education</a></li>
-        <li><a href="#favorites" class="block px-6 py-2 hover:bg-white/10">Favorites</a></li>
-        <li><a href="#contact" class="block px-6 py-2 hover:bg-white/10">Contact</a></li>
-        <li><a href="#settings" class="block px-6 py-2 hover:bg-white/10">Settings</a></li>
-        <li><a href="#login" class="block px-6 py-2 hover:bg-white/10">Login</a></li>
-      </ul>
-    </nav>
-  </aside>
+  <!-- Top Navigation -->
+<header class="fixed top-0 left-0 w-full bg-accent text-white shadow z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-center gap-8">
+    <a href="#home" class="nav-link hover:underline">Home</a>
+    <a href="#about" class="nav-link hover:underline">About</a>
+    <a href="#education" class="nav-link hover:underline">Education</a>
+    <a href="#favorites" class="nav-link hover:underline">Favorites</a>
+    <a href="#contact" class="nav-link hover:underline">Contact</a>
+    <a href="#settings" class="nav-link hover:underline">Settings</a>
+    <a href="#login" class="nav-link hover:underline">Login</a>
+  </div>
+</header>
+
+<style>
+  /* Active link style */
+  .nav-link.active {
+    color: #fdf6e3;       /* Example: light cream when active */
+    font-weight: bold;     /* Optional: bold active link */
+    text-decoration: underline;
+  }
+</style>
+
+<script>
+  // Select all nav links
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Remove 'active' class from all links
+      navLinks.forEach(l => l.classList.remove('active'));
+      // Add 'active' class to clicked link
+      link.classList.add('active');
+    });
+  });
+</script>
+
 
   <!-- Main Content -->
-  <main class="ml-64 p-10">
+  <main class="pt-24 p-10">
 
     <!-- Home Section -->
     <section id="home" class="mb-16 flex flex-col md:flex-row items-center justify-center gap-8 h-screen">
@@ -121,28 +133,48 @@
       </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="mb-16">
-      <h2 class="text-2xl font-semibold mb-6 text-accent">Educational Background</h2>
-      <div class="space-y-4">
-        <div class="p-4 bg-white rounded-lg shadow">
-          <h3 class="font-bold">Bachelor of Science in Information Systems</h3>
-          <p class="text-bg-white">Lyceum De San Pablo | 2023 – Present</p>
-        </div>
-        <div class="p-4 bg-white rounded-lg shadow">
-          <h3 class="font-bold">Senior High School – GAS</h3>
-          <p class="text-bg-white">St. Joseph's High School | 2022 – 2023</p>
-        </div>
-        <div class="p-4 bg-white rounded-lg shadow">
-          <h3 class="font-bold">Junior High School</h3>
-          <p class="text-bg-white">St. Joseph's High School | 2017 – 2021</p>
-        </div>
-        <div class="p-4 bg-white rounded-lg shadow">
-          <h3 class="font-bold">Elementary</h3>
-          <p class="text-bg-white">San Narciso Central Elementary School | 2011 – 2017</p>
-        </div>
+<!-- Education Timeline Section -->
+<section id="education" class="mb-16 relative">
+  <h2 class="text-2xl font-semibold mb-12 text-accent text-center">Educational Background</h2>
+
+  <div class="relative border-l-4 border-accent ml-6">
+    <!-- Timeline Item 1 -->
+    <div class="mb-12 ml-6 relative">
+      <div class="absolute -left-3 top-1 w-6 h-6 bg-accent rounded-full border-2 border-white"></div>
+      <div class="p-4 bg-white rounded-2xl shadow hover:scale-105 transition-transform duration-300">
+        <h3 class="font-bold text-lg mb-1">Bachelor of Science in Information Systems</h3>
+        <p class="text-bg-white">Lyceum De San Pablo | 2023 – Present</p>
       </div>
-    </section>
+    </div>
+
+    <!-- Timeline Item 2 -->
+    <div class="mb-12 ml-6 relative">
+      <div class="absolute -left-3 top-1 w-6 h-6 bg-accent rounded-full border-2 border-white"></div>
+      <div class="p-4 bg-white rounded-2xl shadow hover:scale-105 transition-transform duration-300">
+        <h3 class="font-bold text-lg mb-1">Senior High School – GAS</h3>
+        <p class="text-bg-white">St. Joseph's High School | 2022 – 2023</p>
+      </div>
+    </div>
+
+    <!-- Timeline Item 3 -->
+    <div class="mb-12 ml-6 relative">
+      <div class="absolute -left-3 top-1 w-6 h-6 bg-accent rounded-full border-2 border-white"></div>
+      <div class="p-4 bg-white rounded-2xl shadow hover:scale-105 transition-transform duration-300">
+        <h3 class="font-bold text-lg mb-1">Junior High School</h3>
+        <p class="text-bg-white">St. Joseph's High School | 2017 – 2021</p>
+      </div>
+    </div>
+
+    <!-- Timeline Item 4 -->
+    <div class="mb-12 ml-6 relative">
+      <div class="absolute -left-3 top-1 w-6 h-6 bg-accent rounded-full border-2 border-white"></div>
+      <div class="p-4 bg-white rounded-2xl shadow hover:scale-105 transition-transform duration-300">
+        <h3 class="font-bold text-lg mb-1">Elementary</h3>
+        <p class="text-bg-white">San Narciso Central Elementary School | 2011 – 2017</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Favorites Section -->
     <section id="favorites" class="mb-16">
